@@ -1,0 +1,8 @@
+[user]
+	name = Max Besley
+	email = besleymax@gmail.com
+[core]
+	editor = vim
+	autocrlf = input
+[init]
+	defaultBranch = main

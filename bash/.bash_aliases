@@ -21,7 +21,9 @@ alias diskspace='du -S | sort -n -r | more'
 
 alias please='sudo $(history -p !!)'
 
+alias vi='nvim'
 alias vim='nvim'
+alias nvimrc='cd ~/.config/nvim'
 
 alias gadd='git add'
 alias gcomm='git commit -m'
@@ -40,4 +42,3 @@ alias quit='exit'
 alias ports='ss -tulanp'
 
 alias py=$(which python3.11)
-

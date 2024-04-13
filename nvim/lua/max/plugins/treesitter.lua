@@ -1,28 +1,53 @@
 return {
     'nvim-treesitter/nvim-treesitter',
+    dependencies = { 'nvim-treesitter/nvim-treesitter-context' },
     build = ':TSUpdate',
     config = function()
-        -- import nvim-treesitter plugin
-        local treesitter = require('nvim-treesitter.configs')
 
         -- configure treesitter
-        treesitter.setup({
-            auto_install = true,
+        require('nvim-treesitter.configs').setup {
 
-            -- enable syntax highlighting
-            highlight = { enable = true },
+            -- install parsers synchronously (only applied to `ensure_installed`)
+            sync_install = false,
 
-            -- enable indentation
-            indent = { enable = true },
+            -- automatically install missing parsers when entering buffer
+            -- recommendation: set to false if you don't have `tree-sitter` cli installed locally
+            auto_install = false,
+
+            -- list of parsers to ignore installing (or 'all')
+            ignore_install = {},
+
+            highlight = {
+                enable = true,
+
+                -- languages that will be disabled
+                --disable = { 'python', 'haskell' },
+
+                -- Setting this to true will run `:h syntax` and tree-sitter at the same time.
+                -- Set this to `true` if you depend on 'syntax' being enabled (like for indentation).
+                -- Using this option may slow down your editor, and you may see some duplicate highlights.
+                -- Instead of true it can also be a list of languages
+                additional_vim_regex_highlighting = false,
+            },
+
+            indent = {
+                enable = true,
+                disable = { 'yaml' }
+            },
 
             -- ensure these language parsers are installed
             ensure_installed = {
-                'json',
                 'javascript',
                 'typescript',
+                'php',
+                'perl',
+                'pascal',
                 'tsx',
+                'xml',
+                'json',
                 'yaml',
                 'toml',
+                'nix',
                 'html',
                 'css',
                 'prisma',
@@ -35,14 +60,18 @@ return {
                 'bash',
                 'lua',
                 'vim',
+                'tmux',
                 'dockerfile',
                 'gitignore',
                 'git_config',
                 'vimdoc',
+                'asm',
+                'nasm',
                 'c',
                 'cpp',
                 'c_sharp',
                 'java',
+                'scala',
                 'python',
                 'ruby',
                 'dart',
@@ -50,6 +79,7 @@ return {
                 'rust',
                 'haskell',
                 'ocaml',
+                'elm',
                 'clojure',
                 'elixir',
                 'erlang',
@@ -64,7 +94,9 @@ return {
                     scope_incremental = '<M-e>',  -- increment to the upper scope (as defined in locals.scm)
                 },
             },
-        })
+        }
+
+        require('treesitter-context').setup { enable = true }
     end,
 }
 

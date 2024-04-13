@@ -80,6 +80,18 @@ return {
                     },
                 },
             },
+            pickers = {
+                find_files = {
+                    theme = "dropdown",
+                },
+            },
+            extensions = {
+                -- Your extension configuration goes here:
+                -- extension_name = {
+                --   extension_config_key = value,
+                -- }
+                -- please take a look at the readme of the extension you want to configure
+            }
         }
 
         telescope.load_extension('fzf')

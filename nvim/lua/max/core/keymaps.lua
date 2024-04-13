@@ -31,7 +31,7 @@ keymap('i', '<Right>', '<Nop>', opts)
 
 --- NORMAL ---
 -- save the file
-keymap('n', '<Esc>', '<Cmd>w<Cr>', opts)
+keymap('n', '<Esc>', '<Cmd>w<CR>', opts)
 
 -- next/prev cursor position
 keymap('n', '<C-i>', '<C-i>zz', opts)

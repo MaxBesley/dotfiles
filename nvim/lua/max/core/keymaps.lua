@@ -33,6 +33,13 @@ keymap('i', '<Right>', '<Nop>', opts)
 -- save the file
 keymap('n', '<Esc>', '<Cmd>w<CR>', opts)
 
+-- navigate horizontally more easily
+keymap('n', 'L', '$', opts)
+keymap('n', 'H', '^', opts)
+
+-- cursor doesn't move when joining lines
+keymap('n', 'J', "mzJ`z", opts)
+
 -- next/prev cursor position
 keymap('n', '<C-i>', '<C-i>zz', opts)
 keymap('n', '<C-o>', '<C-o>zz', opts)
@@ -40,10 +47,6 @@ keymap('n', '<C-o>', '<C-o>zz', opts)
 -- navigate vertically by 1/2 page
 keymap('n', '<C-u>', '<C-u>zz', opts)
 keymap('n', '<C-d>', '<C-d>zz', opts)
-
--- navigate horizontally more easily
-keymap('n', 'L', '$', opts)
-keymap('n', 'H', '^', opts)
 
 -- keep screen centred during "/" searching
 keymap('n', 'n', 'nzzzv', opts)
@@ -56,8 +59,16 @@ keymap('n', '#', '#zz', opts)
 -- don't copy deleted single characters
 keymap('n', 'x', '"_x', opts)
 
+-- use leader key to yank into system clipboard
+keymap('n', '<leader>y', "\"+y", opts)
+keymap('v', '<leader>Y', "\"+y", opts)
+keymap('n', '<leader>Y', "\"+Y", opts)
+
 -- clear search highlights
 keymap('n', '<leader>nh', ':nohl<CR>', opts)
+
+-- substitute the word currently under the cursor
+keymap('n', '<leader>su', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], opts)
 
 -- surround a word in double quotes
 keymap('n', "<leader>\"", "viw<esc>a\"<esc>bi\"<esc>lel", opts)
@@ -69,21 +80,27 @@ keymap('n', '<leader>O', 'O<Esc>', opts)
 -- visually select all text
 keymap('n', '<C-a>' ,'G$vgg0', opts)
 
--- better window navigation
-keymap('n', '<C-h>', '<C-w>h', opts) -- or use '<leader>h' instead?
-keymap('n', '<C-j>', '<C-w>j', opts)
-keymap('n', '<C-k>', '<C-w>k', opts)
-keymap('n', '<C-l>', '<C-w>l', opts)
+-- split window management
+keymap('n', '<leader>sv', '<C-w>v', opts) -- split window vertically
+keymap('n', '<leader>sh', '<C-w>s', opts) -- split window horizontally
+keymap('n', '<leader>s=', '<C-w>=', opts) -- make split windows equal width & height
+keymap('n', '<leader>sx', '<Cmd>close<CR>', opts) -- close current split
 
--- resize windows with arrow keys
---keymap("n", "<C-Up>", ":resize +3<CR>", opts)
---keymap("n", "<C-Down>", ":resize -1<CR>", opts)
---keymap("n", "<C-Left>", ":vertical resize -1<CR>", opts)
---keymap("n", "<C-Right>", ":vertical resize +3<CR>", opts)
+-- split window navigation
+keymap('n', '<leader>h', '<C-w>h', opts)
+keymap('n', '<leader>j', '<C-w>j', opts)
+keymap('n', '<leader>k', '<C-w>k', opts)
+keymap('n', '<leader>l', '<C-w>l', opts)
+
+-- resize split windows using arrow keys
+keymap('n', '<C-Up>', ':resize +3<CR>', opts)
+keymap('n', '<C-Down>', ':resize -1<CR>', opts)
+keymap('n', '<C-Left>', ':vertical resize +3<CR>', opts)
+keymap('n', '<C-Right>', ':vertical resize -1<CR>', opts)
 
 -- navigate buffers
---keymap("n", "<S-l>", ":bnext<CR>", opts)
---keymap("n", "<S-h>", ":bprevious<CR>", opts)
+keymap('n', '<C-l>', ':bnext<CR>', opts)
+keymap('n', '<C-h>', ':bprevious<CR>', opts)
 
 
 --- INSERT ---
@@ -99,8 +116,8 @@ keymap('i', '<ESC>', '<Nop>', opts)
 keymap('v', '<', '<gv', opts)
 keymap('v', '>', '>gv', opts)
 -- move text up and down
-keymap('v', '<A-j>', ':m .+2<CR>==', opts)
-keymap('v', '<A-k>', ':m .-1<CR>==', opts)
+keymap('v', 'J', ":m '>+1<CR>gv=gv", opts)
+keymap('v', 'K', ":m '<-2<CR>gv=gv", opts)
 -- for pasting over text with "p"
 keymap('v', 'p', '"_dP', opts)
 -- just exit visual mode by pressing "v" again
@@ -111,9 +128,6 @@ keymap('v', '<C-c>', '<Nop>', opts)
 
 
 --- VISUAL BLOCK ---
--- like above
-keymap('x', '<A-j>', ":move '>+2<CR>gv-gv", opts)
-keymap('x', '<A-k>', ":move '<-1<CR>gv-gv", opts)
 
 
 --- TERMINAL ---
@@ -139,4 +153,12 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
     end,
 })
 
+
+
+
+--keymap('n', '<leader>to', '<Cmd>tabnew<CR>', { desc = 'Open new tab' })
+--keymap('n', '<leader>tx', '<Cmd>tabclose<CR>', { desc = 'Close current tab' })
+--keymap('n', '<leader>tn', '<Cmd>tabn<CR>', { desc = 'Go to next tab' })
+--keymap('n', '<leader>tp', '<Cmd>tabp<CR>', { desc = 'Go to previous tab' })
+--keymap('n', '<leader>tf', '<Cmd>tabnew %<CR>', { desc = 'Open current buffer in new tab' })
 

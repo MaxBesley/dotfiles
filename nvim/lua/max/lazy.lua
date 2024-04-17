@@ -13,7 +13,10 @@ vim.opt.rtp:prepend(lazypath)
 
 
 local plugins = { { import = 'max.plugins' } }
-local opts = {}
+local opts = {
+    change_detection = {
+        notify = false,
+    },
+}
 
 require('lazy').setup(plugins, opts)
-

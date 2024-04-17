@@ -43,8 +43,8 @@ return {
             sync_root_with_cwd = true,
             view = {
                 width = 35,
-                number = false,
-                relativenumber = false,
+                number = true,
+                relativenumber = true,
                 side = 'left',
             },
             renderer = {
@@ -109,4 +109,3 @@ return {
         keymap('n', '<leader>er', '<Cmd>NvimTreeRefresh<CR>',        { desc = 'Refresh file explorer' })
     end,
 }
-

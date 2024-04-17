@@ -50,9 +50,24 @@ return {
         }
 
         -- configure lualine with modified theme
-        lualine.setup({
+        lualine.setup {
             options = {
                 theme = my_lualine_theme,
+                icons_enabled = true,
+                component_separators = { left = '', right = ''},
+                section_separators = { left = '', right = ''},
+                disabled_filetypes = {
+                    statusline = {},
+                    winbar = {},
+                },
+                ignore_focus = {},
+                always_divide_middle = true,
+                globalstatus = false,
+                refresh = {
+                    statusline = 1000,
+                    tabline = 1000,
+                    winbar = 1000,
+                },
             },
             sections = {
                 lualine_x = {
@@ -66,7 +81,6 @@ return {
                     { 'filetype' },
                 },
             },
-        })
+        }
     end,
 }
-

@@ -125,11 +125,28 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 
 
 # fzf (fuzzy finder)
+# NOTES:
+#    - As an example, 'fzf -q .md$' will find all markdown files
+#    - Ctrl-r: search on recent history based on $HISTFILE then return selected entry to the terminal
+#    - Ctrl-t: recursively search for a filename under cwd then return selected entries to the terminal
+#    - Alt-c:  recursively search for a directory name under cwd then cd into the selected entry
+#    - Use TAB to select multiple items
+#    - Ctrl-k and Ctrl-j move up and down
+#    - In the terminal type ** and then TAB to trigger autocomplete
+#
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
+eval "$(fzf --bash)"
+export FZF_DEFAULT_COMMAND="fd --type f"
+export FZF_DEFAULT_OPTS="--multi --reverse"
 
-# Install Ruby Gems to ~/gems
+
+# install Ruby Gems to ~/gems
 export GEM_HOME="$HOME/gems"
 export PATH="$HOME/gems/bin:$PATH"
+# rbenv
+eval "$(~/.rbenv/bin/rbenv init - bash)"
+
+
 
 
 

@@ -4,7 +4,8 @@ alias install='sudo apt install'
 
 alias ls='ls --color=auto --group-directories-first'
 alias la='ls -A'
-alias l='ls -alhFGg'
+alias ll='ls -alhFGg'
+alias l='ls'
 
 alias ..='cd ..'
 alias ...='cd ../..'
@@ -13,7 +14,8 @@ alias .....='cd ../../../..'
 
 alias home='cd ~'
 alias desktop='cd ~/Desktop'
-alias bashrc='vim ~/.bashrc'
+alias bash_aliases='nvim ~/.bash_aliases'
+alias bashrc='nvim ~/.bashrc'
 alias sbashrc='source ~/.bashrc'
 alias path='echo $PATH'
 

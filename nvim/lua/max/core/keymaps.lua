@@ -99,8 +99,9 @@ keymap('n', '<C-Left>', ':vertical resize +3<CR>', opts)
 keymap('n', '<C-Right>', ':vertical resize -1<CR>', opts)
 
 -- navigate buffers
-keymap('n', '<C-l>', ':bnext<CR>', opts)
-keymap('n', '<C-h>', ':bprevious<CR>', opts)
+keymap('n', '<Tab>', '<Cmd>bnext<CR>', opts)
+keymap('n', '<S-Tab>', '<Cmd>bprevious<CR>', opts)
+keymap('n', '<leader>x', '<Cmd>bdelete<CR>', opts)
 
 
 --- INSERT ---

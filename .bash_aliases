@@ -24,7 +24,7 @@ alias diskspace='du -S | sort -n -r | more'
 alias please='sudo $(history -p !!)'
 
 alias vi='nvim'
-alias vim='nvim'
+alias vim='vim'
 alias nvimrc='cd ~/.config/nvim'
 
 alias gadd='git add'

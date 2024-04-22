@@ -134,17 +134,17 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 #    - Ctrl-k and Ctrl-j move up and down
 #    - In the terminal type ** and then TAB to trigger autocomplete
 #
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-eval "$(fzf --bash)"
-export FZF_DEFAULT_COMMAND="fd --type f"
-export FZF_DEFAULT_OPTS="--multi --reverse"
+#[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+#eval "$(fzf --bash)"
+#export FZF_DEFAULT_COMMAND="fd --type f"
+#export FZF_DEFAULT_OPTS="--multi --reverse"
 
 
 # install Ruby Gems to ~/gems
-export GEM_HOME="$HOME/gems"
-export PATH="$HOME/gems/bin:$PATH"
+#export GEM_HOME="$HOME/gems"
+#export PATH="$HOME/gems/bin:$PATH"
 # rbenv
-eval "$(~/.rbenv/bin/rbenv init - bash)"
+#eval "$(~/.rbenv/bin/rbenv init - bash)"
 
 
 
@@ -153,5 +153,4 @@ eval "$(~/.rbenv/bin/rbenv init - bash)"
 
 
 
-
-fortune | cowsay | lolcat
+#fortune | cowsay | lolcat

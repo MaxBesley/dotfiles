@@ -12,7 +12,6 @@ alias ...='cd ../..'
 alias ....='cd ../../..'
 alias .....='cd ../../../..'
 
-alias home='cd ~'
 alias desktop='cd ~/Desktop'
 alias bash_aliases='nvim ~/.bash_aliases'
 alias bashrc='nvim ~/.bashrc'

@@ -1,0 +1,16 @@
+#!/bin/bash
+# This file is a place for snippets of miscellaneous code
+# that are needed on the computer I'm currently using but
+# are not worth putting in my ~/.bashrc file.
+
+
+# install Ruby Gems to ~/gems
+export GEM_HOME="$HOME/gems"
+export PATH="$HOME/gems/bin:$PATH"
+# rbenv
+eval "$(~/.rbenv/bin/rbenv init - bash)"
+
+# ghcup
+export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
+
+

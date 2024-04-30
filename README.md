@@ -31,10 +31,11 @@ which will effectively delete all the conflicting files/directories that already
 
 Now install
 
-  - vim
-  - neovim
-  - tmux
-  - fzf
-  - git
+  - [vim](https://www.vim.org)
+  - [neovim](https://github.com/neovim/neovim)
+  - [tmux](https://github.com/tmux/tmux)
+  - [fzf](https://github.com/junegunn/fzf)
+  - [bat](https://github.com/sharkdp/bat)
+  - [eza](https://github.com/eza-community/eza)
 
 and any other needed software.

@@ -4,7 +4,7 @@ alias install='sudo apt install'
 
 alias ls='ls --color=auto --group-directories-first'
 alias la='ls -A'
-alias ll='ls -alhFGg'
+alias ll='ls -alhGg --classify'
 alias l='ls'
 
 alias ..='cd ..'

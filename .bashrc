@@ -124,7 +124,7 @@ export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
 
 
-# fzf (fuzzy finder)
+# ------ fzf (fuzzy finder) ------
 # NOTES:
 #    - As an example, 'fzf -q .md$' will find all markdown files
 #    - Ctrl-r: search on recent history based on $HISTFILE then return selected entry to the terminal
@@ -133,24 +133,21 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 #    - Use TAB to select multiple items
 #    - Ctrl-k and Ctrl-j move up and down
 #    - In the terminal type ** and then TAB to trigger autocomplete
-#
 #[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 #eval "$(fzf --bash)"
 #export FZF_DEFAULT_COMMAND="fd --type f"
 #export FZF_DEFAULT_OPTS="--multi --reverse"
 
+# ------ bat (better cat) ------
+#alias cat='bat --color=always --paging=never'
+#export BAT_THEME=TwoDark
 
-# install Ruby Gems to ~/gems
-#export GEM_HOME="$HOME/gems"
-#export PATH="$HOME/gems/bin:$PATH"
-# rbenv
-#eval "$(~/.rbenv/bin/rbenv init - bash)"
-
-
+# ------ eza (better ls) ------
+#alias ls='eza --color=always --group-directories-first --icons=always --git --no-filesize --no-time --no-user --no-permissions'
 
 
+# source various machine-specific odds and ends
+#[ -f ~/.bash_misc ] && source ~/.bash_misc
 
 
-
-
-#fortune | cowsay | lolcat
+#fortune | cowsay -f dragon | lolcat

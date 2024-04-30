@@ -83,6 +83,7 @@ return {
             pickers = {
                 find_files = {
                     theme = "dropdown",
+                    hidden = true,
                 },
             },
             extensions = {

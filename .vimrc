@@ -57,7 +57,7 @@ nnoremap N Nzzzv
 nnoremap * *zz
 nnoremap # #zz
 nnoremap <C-a> G$vgg0
-nnoremap <leader>hl :set hls!<CR>
+nnoremap <leader>thl :set hls!<CR>
 nnoremap <leader>o o<Esc>
 nnoremap <leader>O O<Esc>
 nnoremap <C-Up> :resize +3<CR>

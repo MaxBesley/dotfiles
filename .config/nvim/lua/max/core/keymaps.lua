@@ -64,14 +64,14 @@ keymap('n', '<leader>y', "\"+y", opts)
 keymap('v', '<leader>Y', "\"+y", opts)
 keymap('n', '<leader>Y', "\"+Y", opts)
 
--- clear search highlights
-keymap('n', '<leader>nh', ':nohl<CR>', opts)
+-- toggle search highlights
+keymap('n', '<leader>thl', '<Cmd>set hls!<CR>', opts)
 
 -- substitute the word currently under the cursor
 keymap('n', '<leader>su', [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]], opts)
 
 -- surround a word in double quotes
-keymap('n', "<leader>\"", "viw<esc>a\"<esc>bi\"<esc>lel", opts)
+keymap('n', "<leader>\"", "viw<Esc>a\"<Esc>bi\"<Esc>lel", opts)
 
 -- easily add newlines
 keymap('n', '<leader>o', 'o<Esc>', opts)
@@ -106,10 +106,10 @@ keymap('n', '<leader>x', '<Cmd>bdelete<CR>', opts)
 
 --- INSERT ---
 -- mash these to leave insert mode
-keymap('i', 'jk', '<ESC>', opts)
-keymap('i', 'kj', '<ESC>', opts)
+keymap('i', 'jk', '<Esc>', opts)
+keymap('i', 'kj', '<Esc>', opts)
 -- nullify pressing escape
-keymap('i', '<ESC>', '<Nop>', opts)
+keymap('i', '<Esc>', '<Nop>', opts)
 
 
 --- VISUAL ---
@@ -121,11 +121,13 @@ keymap('v', 'J', ":m '>+1<CR>gv=gv", opts)
 keymap('v', 'K', ":m '<-2<CR>gv=gv", opts)
 -- for pasting over text with "p"
 keymap('v', 'p', '"_dP', opts)
--- just exit visual mode by pressing "v" again
-keymap('v', '<ESC>', '<Nop>', opts)
-keymap('v', '<C-c>', '<Nop>', opts)
+-- exit visual mode by pressing Ctrl-c
+keymap('v', '<Esc>', '<Nop>', opts)
 -- surround with double quotes???
 --keymap("v", "<leader>\"", ":s/\%V\(.*\)\%V/"\1"/", opts)
+-- navigate horizontally in visual mode
+keymap('v', 'L', '$', opts)
+keymap('v', 'H', '^', opts)
 
 
 --- VISUAL BLOCK ---
@@ -153,13 +155,3 @@ vim.api.nvim_create_autocmd({ 'BufWritePre' }, {
         vim.fn.setpos('.', save_cursor)
     end,
 })
-
-
-
-
---keymap('n', '<leader>to', '<Cmd>tabnew<CR>', { desc = 'Open new tab' })
---keymap('n', '<leader>tx', '<Cmd>tabclose<CR>', { desc = 'Close current tab' })
---keymap('n', '<leader>tn', '<Cmd>tabn<CR>', { desc = 'Go to next tab' })
---keymap('n', '<leader>tp', '<Cmd>tabp<CR>', { desc = 'Go to previous tab' })
---keymap('n', '<leader>tf', '<Cmd>tabnew %<CR>', { desc = 'Open current buffer in new tab' })
-

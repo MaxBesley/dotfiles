@@ -35,6 +35,7 @@ Now install
   - [neovim](https://github.com/neovim/neovim)
   - [tmux](https://github.com/tmux/tmux)
   - [fzf](https://github.com/junegunn/fzf)
+  - [zoxide](https://github.com/ajeetdsouza/zoxide)
   - [bat](https://github.com/sharkdp/bat)
   - [eza](https://github.com/eza-community/eza)
 

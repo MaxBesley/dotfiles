@@ -95,25 +95,6 @@ if ! shopt -oq posix; then
   fi
 fi
 
-# Alias definitions.
-# You may want to put all your additions into a separate file like
-# ~/.bash_aliases, instead of adding them here directly.
-# See /usr/share/doc/bash-doc/examples in the bash-doc package.
-if [ -f ~/.bash_aliases ]; then
-    . ~/.bash_aliases
-fi
-
-
-# follow cd by an ls
-cd() {
-    builtin cd "$@" && ls -A
-}
-
-# navigate up directories
-up() {
-    cd $(eval printf '../'%.0s {1..$1})
-}
-
 # colorful manpages
 export LESS_TERMCAP_mb=$'\E[01;31m'
 export LESS_TERMCAP_md=$'\E[01;31m'
@@ -122,6 +103,13 @@ export LESS_TERMCAP_se=$'\E[0m'
 export LESS_TERMCAP_so=$'\E[01;44;33m'
 export LESS_TERMCAP_ue=$'\E[0m'
 export LESS_TERMCAP_us=$'\E[01;32m'
+
+
+# ~/.bash_misc is used to source various machine-specific odds and ends
+for file in ~/.{bash_aliases,bash_functions,bash_misc}; do
+    [ -r $file ] && [ -f $file ] && source $file
+done
+unset file
 
 
 # ------ fzf (fuzzy finder) ------
@@ -133,21 +121,20 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 #    - Use TAB to select multiple items
 #    - Ctrl-k and Ctrl-j move up and down
 #    - In the terminal type ** and then TAB to trigger autocomplete
-#[ -f ~/.fzf.bash ] && source ~/.fzf.bash
-#eval "$(fzf --bash)"
-#export FZF_DEFAULT_COMMAND="fd --type f"
-#export FZF_DEFAULT_OPTS="--multi --reverse"
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
+eval "$(fzf --bash)"
+export FZF_DEFAULT_COMMAND="fd --type f"
+export FZF_DEFAULT_OPTS="--multi --reverse"
+
+# ------ zoxide (better cd) ------
+eval "$(zoxide init --cmd cd bash)"
 
 # ------ bat (better cat) ------
-#alias cat='bat --color=always --paging=never'
-#export BAT_THEME=TwoDark
+alias cat='bat --color=always --paging=never'
+export BAT_THEME=TwoDark
 
 # ------ eza (better ls) ------
-#alias ls='eza --color=always --group-directories-first --icons=always --git --no-filesize --no-time --no-user --no-permissions'
+alias ls='eza --color=always --group-directories-first --icons=always --git --no-filesize --no-time --no-user --no-permissions'
 
 
-# source various machine-specific odds and ends
-#[ -f ~/.bash_misc ] && source ~/.bash_misc
-
-
-#fortune | cowsay -f dragon | lolcat
+fortune | cowsay -f dragon | lolcat

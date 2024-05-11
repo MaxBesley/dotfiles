@@ -59,6 +59,10 @@ keymap('n', '#', '#zz', opts)
 -- don't copy deleted single characters
 keymap('n', 'x', '"_x', opts)
 
+-- don't copy when deleting
+keymap('n', '<leader>d', "\"_d", opts)
+keymap('v', '<leader>d', "\"_d", opts)
+
 -- use leader key to yank into system clipboard
 keymap('n', '<leader>y', "\"+y", opts)
 keymap('v', '<leader>Y', "\"+y", opts)
@@ -126,7 +130,7 @@ keymap('v', '<Esc>', '<Nop>', opts)
 -- surround with double quotes???
 --keymap("v", "<leader>\"", ":s/\%V\(.*\)\%V/"\1"/", opts)
 -- navigate horizontally in visual mode
-keymap('v', 'L', '$', opts)
+keymap('v', 'L', '$h', opts)
 keymap('v', 'H', '^', opts)
 
 

@@ -56,7 +56,7 @@ if [ -n "$force_color_prompt" ]; then
 fi
 
 if [ "$color_prompt" = yes ]; then
-    PS1='${debian_chroot:+($debian_chroot)}\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
+    PS1='\[\033[01;34m\]\w\[\033[00m\] '
 else
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
@@ -109,7 +109,6 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 for file in ~/.{bash_aliases,bash_functions,bash_misc}; do
     [ -r $file ] && [ -f $file ] && source $file
 done
-unset file
 
 
 # ------ fzf (fuzzy finder) ------

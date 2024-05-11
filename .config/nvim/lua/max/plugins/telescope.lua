@@ -82,8 +82,11 @@ return {
             },
             pickers = {
                 find_files = {
-                    theme = "dropdown",
+                    theme = 'dropdown',
                     hidden = true,
+                },
+                live_grep = {
+                    theme = 'dropdown',
                 },
             },
             extensions = {

@@ -106,7 +106,7 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 
 
 # ~/.bash_misc is used to source various machine-specific odds and ends
-for file in ~/.{bash_aliases,bash_functions,bash_misc}; do
+for file in ~/.{bash_aliases,bash_functions,bash_exports,bash_misc}; do
     [ -r $file ] && [ -f $file ] && source $file
 done
 

@@ -11,9 +11,8 @@ This [video](https://www.youtube.com/watch?v=y6XCebnB9gs) introduces `stow` very
 To install these dotfiles run the following commands
 
 ```
-cd ~
 git clone https://github.com/MaxBesley/dotfiles ~/.dotfiles
-cd .dotfiles
+cd ~/.dotfiles
 stow --verbose .
 ```
 

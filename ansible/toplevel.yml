@@ -1,0 +1,34 @@
+---
+- name: Install software onto my PC
+  hosts: localhost
+  connection: local
+
+  tasks:
+    - name: System packages
+      include_role:
+        name: packages
+
+    - name: Nerd fonts
+      include_role:
+        name: fonts
+
+    - name: fzf
+      include_role:
+        name: fzf
+
+    - name: zoxide
+      include_role:
+        name: zoxide
+
+    - name: eza
+      include_role:
+        name: eza
+
+    - name: bat
+      include_role:
+        name: bat
+
+    - name: Build and install neovim from source
+      include_role:
+        name: neovim
+

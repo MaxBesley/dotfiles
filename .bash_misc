@@ -6,11 +6,17 @@
 
 # install Ruby Gems to ~/gems
 export GEM_HOME="$HOME/gems"
-export PATH="$HOME/gems/bin:$PATH"
+export PATH="$PATH:$HOME/gems/bin"
 # rbenv
-eval "$(~/.rbenv/bin/rbenv init - bash)"
+#eval "$(~/.rbenv/bin/rbenv init - bash)"
 
 # ghcup
-export PATH="$HOME/.cabal/bin:$HOME/.ghcup/bin:$PATH"
+export PATH="$PATH:$HOME/.cabal/bin:$HOME/.ghcup/bin"
 
+# desktop alias
+if [[ $(grep -i Microsoft /proc/version) ]]; then
+    alias desktop='cd /mnt/c/users/max/desktop'
+else
+    alias desktop='cd ~/Desktop'
+fi
 

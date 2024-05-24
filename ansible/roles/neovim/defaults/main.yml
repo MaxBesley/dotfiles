@@ -1,0 +1,16 @@
+---
+build_from_source: true
+
+build_dependencies:
+  - gcc
+  - ninja-build
+  - gettext
+  - cmake
+  - unzip
+  - curl
+  - build-essential
+  - ripgrep
+  - fd-find
+
+nvim_directory: "/tmp/nvim_src/"
+

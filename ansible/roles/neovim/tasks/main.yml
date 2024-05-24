@@ -1,0 +1,50 @@
+---
+- name: Uninstall APT neovim
+  ansible.builtin.apt:
+    name: neovim
+    state: absent
+  become: true
+
+- name: Check if neovim binary is installed
+  shell: command -v nvim
+  register: nvim_exists
+  ignore_errors: yes
+
+- block:
+    - name: Install build dependencies
+      ansible.builtin.apt:
+        name: "{{ build_dependencies }}"
+        state: present
+        update_cache: true
+      become: true
+
+    - name: Clone neovim from GitHub
+      ansible.builtin.git:
+        repo: https://github.com/neovim/neovim.git
+        dest: "{{ nvim_directory }}"
+        depth: 1
+        version: "stable"
+      register: clone
+
+    - name: Build neovim
+      make:
+        chdir: "{{ nvim_directory }}"
+        params:
+          CMAKE_BUILD_TYPE: Release
+      when: clone.changed
+
+    - name: Install neovim
+      make:
+        chdir: "{{ nvim_directory }}"
+        target: install
+      become: true
+      when: clone.changed
+
+    - name: Delete source code directory
+      ansible.builtin.file:
+        path: "{{ nvim_directory }}"
+        state: absent
+      become: true
+
+  when: build_from_source and nvim_exists.failed
+

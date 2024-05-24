@@ -1,0 +1,11 @@
+---
+packages:
+  - build-essential
+  - clang
+  - vim
+  - figlet
+  - neofetch
+  - fortune
+  - cowsay
+  - lolcat
+

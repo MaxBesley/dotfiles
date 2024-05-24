@@ -11,3 +11,5 @@ export MANPAGER='less -X'
 export HISTFILESIZE=4000
 export HISTSIZE=2000
 
+export PATH=$HOME/.local/bin:$PATH
+

@@ -1,0 +1,19 @@
+---
+- name: Install bat through APT
+  ansible.builtin.apt:
+    name: bat
+    state: latest
+  become: true
+
+- name: Find location of bat binary
+  command: which batcat
+  register: batcat_path
+
+- name: Symlink the bat binary
+  ansible.builtin.file:
+    src: "{{ batcat_path.stdout }}"
+    dest: "/usr/local/bin/bat"
+    owner: "{{ ansible_user_id }}"
+    state: link
+  become: true
+

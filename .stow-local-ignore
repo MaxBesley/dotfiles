@@ -3,4 +3,5 @@
 ^/README.*
 ^/LICENSE.*
 scripts
+ansible
 ^/.*\.md

@@ -1,0 +1,32 @@
+---
+- name: Uninstall APT fzf
+  ansible.builtin.apt:
+    name: fzf
+    state: absent
+  become: true
+
+- name: Ensure fd is installed
+  ansible.builtin.apt:
+    name: fd-find
+    state: present
+  become: true
+
+- name: Find location of fd binary
+  command: which fdfind
+  register: fdfind_path
+
+- name: Symlink the fd binary
+  ansible.builtin.file:
+    src: "{{ fdfind_path.stdout }}"
+    dest: "/usr/local/bin/fd"
+    owner: "{{ ansible_user_id }}"
+    state: link
+  become: true
+
+- name: Clone fzf from GitHub
+  ansible.builtin.git:
+    repo: https://github.com/junegunn/fzf.git
+    dest: "{{ ansible_user_dir }}/.fzf"
+    depth: 1
+  notify: Run fzf install script
+

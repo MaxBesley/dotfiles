@@ -1,0 +1,4 @@
+---
+- name: Install zoxide using the install script
+  ansible.builtin.shell: curl -sSfL https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh
+

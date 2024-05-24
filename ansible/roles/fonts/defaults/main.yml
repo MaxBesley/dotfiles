@@ -1,0 +1,4 @@
+---
+
+fonts_directory: "{{ ansible_user_dir }}/.local/share/fonts"
+

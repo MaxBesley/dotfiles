@@ -1,0 +1,26 @@
+---
+- block:
+
+    - name: Update and upgrade APT
+      ansible.builtin.apt:
+        update_cache: yes
+        upgrade: "yes"
+
+    - name: Remove useless packages from the cache
+      ansible.builtin.apt:
+        autoclean: yes
+
+    - name: Remove dependencies that are no longer required and purge their config files
+      ansible.builtin.apt:
+        autoremove: yes
+        purge: yes
+
+    - name: Install desired APT packages
+      ansible.builtin.apt:
+        pkg: "{{ packages }}"
+        state: latest
+
+  become: true
+  become_user: root
+  when: ansible_os_family == 'Debian'
+

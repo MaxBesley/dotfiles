@@ -1,0 +1,8 @@
+---
+- name: Download and install eza
+  ansible.builtin.unarchive:
+    src: https://github.com/eza-community/eza/releases/download/v0.18.16/eza_x86_64-unknown-linux-gnu.zip
+    dest: /usr/local/bin
+    remote_src: yes
+  become: true
+

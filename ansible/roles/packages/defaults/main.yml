@@ -1,11 +1,19 @@
 ---
-packages:
+core_pkgs:
   - build-essential
   - clang
   - vim
+  - tmux
+  - htop
+
+fun_pkgs:
+  - sl
   - figlet
+  - nyancat
+  - cmatrix
   - neofetch
   - fortune
   - cowsay
   - lolcat
+  - pacman4console
 

@@ -28,5 +28,5 @@
     repo: https://github.com/junegunn/fzf.git
     dest: "{{ ansible_user_dir }}/.fzf"
     depth: 1
-  notify: Run fzf install script
+  notify: Run the install script
 

@@ -1,19 +1,27 @@
 ---
-- name: Ensure fonts directory exists
+- name: Ensure the fonts directory exists
   ansible.builtin.file:
     path: "{{ fonts_directory }}"
     state: directory
     mode: '0755'
 
-- name: Check if the font is already downloaded
-  shell: "ls {{ fonts_directory }}/Hack*Nerd*Font*Complete*"
+- name: "Check if the {{ font_name }} font is already installed"
+  shell: "ls {{ fonts_directory }}/{{ font_name }}"
   register: font_exists
   ignore_errors: yes
 
-- name: Download the font
-  ansible.builtin.unarchive:
-    src: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/Hack.zip
-    dest: "{{ fonts_directory }}"
-    remote_src: yes
+- block:
+  - name: "Create an empty directory named {{ font_name }}"
+    ansible.builtin.file:
+      path: "{{ fonts_directory }}/{{ font_name }}"
+      state: directory
+      mode: '0755'
+
+  - name: "Download and install the {{ font_name }} font from GitHub"
+    ansible.builtin.unarchive:
+      src: https://github.com/ryanoasis/nerd-fonts/releases/download/v3.2.1/{{ font_name }}.zip
+      dest: "{{ fonts_directory }}/{{ font_name }}"
+      remote_src: yes
+
   when: font_exists is failed
 

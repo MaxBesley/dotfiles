@@ -40,6 +40,8 @@ alias shutdown='sudo shutdown'
 alias reboot='sudo roboot'
 alias quit='exit'
 
+alias myip='hostname -I'                  # private
+alias mypubip='curl -w "\n" ifconfig.me'  # public
 alias ports='ss -tulanp'
 alias diskspace='du -S | sort -n -r | more'
 

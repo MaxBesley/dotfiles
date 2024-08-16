@@ -103,7 +103,7 @@ export LESS_TERMCAP_us=$'\E[01;32m'
 
 # ~/.bash_misc is used to source various machine-specific odds and ends
 for file in ~/.{bash_aliases,bash_functions,bash_exports,bash_misc}; do
-    [ -r $file ] && [ -f $file ] && source $file
+    [ -f $file ] && [ -r $file ] && source $file
 done
 
 
@@ -132,4 +132,5 @@ export BAT_THEME=TwoDark
 alias ls='eza --color=always --group-directories-first --icons=always --git --no-filesize --no-time --no-user --no-permissions'
 
 
+#figlet 'My PC' | lolcat && echo ''
 fortune | cowsay -f dragon | lolcat

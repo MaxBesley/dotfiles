@@ -8,6 +8,7 @@
 - name: Find location of bat binary
   command: which batcat
   register: batcat_path
+  changed_when: false
 
 - name: Symlink the bat binary
   ansible.builtin.file:

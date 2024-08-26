@@ -12,8 +12,10 @@
   become: true
 
 - name: Find location of fd binary
-  command: which fdfind
+  shell: command -v fdfind
   register: fdfind_path
+  ignore_errors: true
+  changed_when: false
 
 - name: Symlink the fd binary
   ansible.builtin.file:

@@ -20,6 +20,5 @@
         purge: yes
 
   become: true
-  become_user: root
   when: ansible_os_family == 'Debian'
 

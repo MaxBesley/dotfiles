@@ -4,7 +4,9 @@ core_pkgs:
   - clang
   - vim
   - tmux
+  - ssh
   - htop
+  - atool
 
 fun_pkgs:
   - sl

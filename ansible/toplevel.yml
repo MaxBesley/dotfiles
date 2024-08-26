@@ -32,3 +32,7 @@
       include_role:
         name: neovim
 
+    - name: clojure
+      include_role:
+        name: clojure
+

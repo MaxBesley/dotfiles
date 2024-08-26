@@ -8,7 +8,8 @@
 - name: "Check if the {{ font_name }} font is already installed"
   shell: "ls {{ fonts_directory }}/{{ font_name }}"
   register: font_exists
-  ignore_errors: yes
+  ignore_errors: true
+  changed_when: false
 
 - block:
   - name: "Create an empty directory named {{ font_name }}"
@@ -23,5 +24,5 @@
       dest: "{{ fonts_directory }}/{{ font_name }}"
       remote_src: yes
 
-  when: font_exists is failed
+  when: font_exists.failed
 

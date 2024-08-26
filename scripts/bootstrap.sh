@@ -13,7 +13,7 @@ if ! [ -z "$BOOTSTRAP_COMPLETE" ]; then
        *)
            echo "Something went wrong." ;;
    esac
-   return 0
+   exit 0
 fi
 
 err_exit() {
